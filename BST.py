@@ -1,4 +1,3 @@
-# 定义个类，来实现二叉搜索树
 class TreeNode:
 
     def __init__(self, value):
@@ -8,13 +7,13 @@ class TreeNode:
         self.left = None
 
         self.right = None
-# 实现了插入和搜索这两个操作
+
 class BinarySearchTree:
 
     def __init__(self):
 
         self.root = None
-
+    #插入
     def insert(self, value):
 
         new_node = TreeNode(value)
@@ -48,7 +47,7 @@ class BinarySearchTree:
                     return
 
                 current = current.right
-
+    #搜尋
     def search(self, value):
 
         current = self.root
@@ -68,78 +67,63 @@ class BinarySearchTree:
                 current = current.right
 
         return None
-# 创建一个二叉搜索树对象
+    #刪除
+    def delete(self, value):
+        self.root = self._delete_helper(self.root, value)
 
-bst = BinarySearchTree()
+    def _delete_helper(self, node, value):
+        if not node:
+            return node
 
-# 插入一些员工编号
+        if value < node.value:
+            node.left = self._delete_helper(node.left, value)
+        elif value > node.value:
+            node.right = self._delete_helper(node.right, value)
+        else:
+            # 找到要刪的節點
+            if not node.left:
+                return node.right
+            elif not node.right:
+                return node.left
 
-bst.insert(1001)
-
-bst.insert(1002)
-
-bst.insert(1003)
-
-# 假设要查找编号为1002的员工节点
-
-result = bst.search(1002)
-
-if result:
-
-    print("找到编号为1002的员工节点")
-
-else:
-
-    print("未找到编号为1002的员工节点")
-
-# 假设要插入新员工编号1004
-
-bst.insert(1004)
-
-# 二叉搜索树在员工管控软件中的删除操作
-
-def delete(self, value):
-
-    self.root = self._delete_helper(self.root, value)
-
-def _delete_helper(self, node, value):
-
-    if not node:
+            # 兩邊都有子樹，找右子樹的最小值來替代
+            temp = self.min_value_node(node.right)
+            node.value = temp.value
+            node.right = self._delete_helper(node.right, temp.value)
 
         return node
 
-    if value < node.value:
+    def min_value_node(self, node):
+        current = node
+        while current.left:
+            current = current.left
+        return current
 
-        node.left = self._delete_helper(node.left, value)
+# 创建一个二叉搜索树对象
+bst = BinarySearchTree()
 
-    elif value > node.value:
+# 插入一些员工编号
+bst.insert(1001)
+bst.insert(1002)
+bst.insert(1003)
 
-        node.right = self._delete_helper(node.right, value)
+# 假设要查找编号为1002的员工节点
+result = bst.search(1002)
 
-    else:
+if result:
+    print("找到编号为1002的员工节点")
+else:
+    print("未找到编号为1002的员工节点")
 
-        if not node.left:
+# 假设要插入新员工编号1004
+bst.insert(1004)
 
-            return node.right
+# 删除员工编号 1002
+bst.delete(1002)
 
-        elif not node.right:
-
-            return node.left
-
-        temp = self.min_value_node(node.right)
-
-        node.value = temp.value
-
-        node.right = self._delete_helper(node.right, temp.value)
-
-    return node
-
-def min_value_node(self, node):
-
-    current = node
-
-    while current.left:
-
-        current = current.left
-
-    return current
+# 再次搜索
+result = bst.search(1002)
+if result:
+    print("删除失败，仍然找到编号为1002的节点")
+else:
+    print("成功删除编号为1002的节点")
