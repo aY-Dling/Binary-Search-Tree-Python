@@ -1,7 +1,8 @@
 # 南華大學資料結構-第二次期中報告(ex-7題目)    11124209蔡岱伶
 # 员工管控软件里的 Python 二叉搜索树算法，一文讲明白！
 在现代企业管理里，员工管控软件可是提升管理效率、优化资源配置的关键工具。这类软件得高效处理大量员工数据，而数据结构和算法选得好不好，对它的性能影响特别大。这篇文章就来仔细讲讲 Python 里的二叉搜索树（Binary Search Tree，BST）算法，看看它在员工管控软件里是怎么用的，还会通过具体代码例子，让大家见识一下它有多厉害。
-![BST01](https://github.com/aY-Dling/Binary-Search-Tree-Python/blob/main/BST01.jpeg?raw=true))
+
+![BST01](https://github.com/aY-Dling/Binary-Search-Tree-Python/blob/main/BST01.jpeg?raw=true)
 
 ### 二叉搜索树算法简介
 
@@ -175,6 +176,6 @@
 
 在实际的员工管控软件里，二叉搜索树可能会和其他数据结构或者技术一起用。比如说，可以把二叉搜索树和数据库连起来，实现数据的持久化存储。另外，为了让性能更好，可能还得优化二叉搜索树，像平衡二叉搜索树（AVL 树或红黑树），这样就能避免树长得太高，影响性能。
 
-![期末截圖01](https://github.com/aY-Dling/REPORT_-Exam/blob/main/%E6%9C%9F%E6%9C%AB%E6%88%AA%E5%9C%9601.jpeg?raw=true)
+![BST02](https://github.com/aY-Dling/REPORT_-Exam/blob/main/%E6%9C%9F%E6%9C%AB%E6%88%AA%E5%9C%9601.jpeg?raw=true)
 
 员工管控软件可是企业管理的核心工具之一，要提升它的性能，就得深入理解和优化底层的数据结构和算法。Python 里的二叉搜索树算法，查找、插入和删除都很快，给员工管控软件的数据管理帮了大忙。合理用好二叉搜索树，就能快速处理员工信息，满足企业管理的各种需求。以后软件开发的时候，企业业务会不断拓展，数据量也会越来越大，对二叉搜索树这类数据结构的研究和改进，还会继续推动员工管控软件向前发展。
